@@ -47,7 +47,7 @@ RUN conda init
 RUN pip install \
         luno-python \
         binance-python \
-        huobi-sdk #\
+        huobi-sdk 
         #jupyterlab \
         #ipykernel \
         #matplotlib \
