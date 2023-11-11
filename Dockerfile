@@ -37,7 +37,7 @@ RUN apt-get update \
    rm -rf /var/lib/apt/lists/*
 
 # Download the latest version of minicoda py3.8 for linux x86/x64.
-RUN curl -fsSL https://repo.anaconda.com/miniconda/$( wget -O - https://repo.anaconda.com/miniconda/ 2>/dev/null | grep -o 'Miniconda3-py312_[^"]*-Linux-x86_64.sh' | head -n 1) > /tmp/miniconda.sh \
+RUN curl -fsSL https://repo.anaconda.com/miniconda/$( wget -O - https://repo.anaconda.com/miniconda/ 2>/dev/null | grep -o 'Miniconda3-py311_[^"]*-Linux-x86_64.sh' | head -n 1) > /tmp/miniconda.sh \
        && chmod +x /tmp/miniconda.sh \
        && /tmp/miniconda.sh -b -p /opt/conda
 
