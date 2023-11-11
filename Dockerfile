@@ -45,10 +45,13 @@ ENV PATH=/opt/conda/bin:$PATH
 RUN conda init
 
 RUN pip install \
-        jupyterlab \
-        ipykernel \
-        matplotlib \
-        ipywidgets
+        luno-python \
+        binance-python \
+        huobi-sdk #\
+        #jupyterlab \
+        #ipykernel \
+        #matplotlib \
+        #ipywidgets
 
 # A random default token
 ARG AUTH_KEY=5ca1ab1e
@@ -65,5 +68,6 @@ ENV PATH="$PATH:$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
 # Change permissions to allow for Apptainer/Singularity containers
 RUN chmod -R a+rwX /root
 
-RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
-CMD ["jupyter", "lab", "--ip='*'", "--NotebookApp.token=''", "--NotebookApp.password=''","--allow-root"]
+#RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
+#CMD ["jupyter", "lab", "--ip='*'", "--NotebookApp.token=''", "--NotebookApp.password=''","--allow-root"]
+CMD ["python", "-m", "http.server", "8080"]
